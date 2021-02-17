@@ -25,9 +25,11 @@ namespace WpfApp12
             InitializeComponent();
         }
 
-        //private void TextBoxGotFocus(object sender, e)
-        //{
-        //    ((TextBlock)sender)
-        //}
+
+        private void TextBoxGotFocus(object sender, RoutedEventArgs e)
+        {
+            ((TextBox)sender).Text = null;
+        
+        }
     }
 }

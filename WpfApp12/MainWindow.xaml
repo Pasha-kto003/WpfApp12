@@ -9,7 +9,7 @@
         Title="Виселица" Height="400" Width="500">
     <Window.Resources>
         <DataTemplate x:Key="characterBox" DataType="ListBoxItem">
-            <TextBox Text="{Binding Character}" IsEnabled="{Binding Unknown}" Padding="5" FontSize="16"/>
+            <TextBox Text="{Binding Character}" GotFocus="TextBoxGotFocus" IsEnabled="{Binding Unknown}" Padding="5" FontSize="16"/>
         </DataTemplate>
     </Window.Resources>
     <Window.DataContext>
@@ -33,6 +33,7 @@
         <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Button Content="Начать игру"  HorizontalAlignment="Center"  Padding="5" Command="{Binding CommandStart}"/>
             <Button Content="Угадай букву" Command="{Binding CommandTry}"/>
+            <TextBlock x:Name="win_lose" Text="{Binding CommandWin}"/>
         </StackPanel>
     </Grid>
 </Window>

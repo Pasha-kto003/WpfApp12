@@ -1,6 +1,7 @@
 ﻿using Mvvm1125;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using WpfApp12.Models;
 
@@ -10,26 +11,28 @@ namespace WpfApp12.ViewModels
     {
         Game game;
         public string CurrentImage { get; set; }
+        public IEnumerable<ViewChar> TryWord { get; set; }
         public MvvmCommand CommandTry { get; set; }
-        public Models.Char[] TryWord { get; set; }
-        
         public MvvmCommand CommandStart { get; set; }
+        public MvvmCommand Commandwin { get; set; }
 
         public MainVM()
         {
             game = new Game();
-            TryWord = game.GetStartWord();
+            TryWord = game.GetStartWord().Select(s => new ViewChar(s));
             CommandTry = new MvvmCommand(
-                () => game.TryWord(TryWord), 
+                () => game.TryWord(),
                 () => game.Status);
+            CommandStart = new MvvmCommand(
+                () => game.StartGame(),
+                () => !game.Status);
             game.ImageChanged += Game_ImageChanged;
             game.WordStatusChanged += Game_WordStatusChanged;
-            CommandStart = new MvvmCommand(() => game.StartGame(), () => !game.Status);
         }
 
         private void Game_WordStatusChanged(object sender, Models.Char[] e)
         {
-            TryWord = e;
+            TryWord = e.Select(s => new ViewChar(s));
             NotifyPropertyChanged("TryWord");
         }
 
