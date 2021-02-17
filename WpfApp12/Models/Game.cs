@@ -13,7 +13,7 @@ namespace WpfApp12.Models
         public event EventHandler<Char[]> WordStatusChanged;
         string word;
         int errorCount = 0;
-        Char[] chars= new Char [0];
+        Char[] chars = new Char[0];
 
         public bool Status { get; private set; }
 

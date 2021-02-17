@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <Reference Include="Mvvm1125">
-      <HintPath>..\..\..\..\Desktop\Mvvm1125\bin\Debug\netcoreapp3.1\Mvvm1125.dll</HintPath>
+      <HintPath>..\..\fan\Висельница\Mvvm1125.dll</HintPath>
     </Reference>
   </ItemGroup>
 
