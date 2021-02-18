@@ -15,7 +15,6 @@ namespace WpfApp12.Models
         string word;
         int errorCount = 0;
         Char[] chars = new Char[0];
-        Char[] chars= new Char [0];
         private string currentMessage;
         public string CurrentMessage
         {
