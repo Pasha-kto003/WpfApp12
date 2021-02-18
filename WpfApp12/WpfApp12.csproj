@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="5753cd33c46861551f59925c.png" />
+    <None Remove="Desert.jpg" />
     <None Remove="hangman\Hangman-0.png" />
     <None Remove="hangman\Hangman-1.png" />
     <None Remove="hangman\Hangman-2.png" />
@@ -14,6 +16,7 @@
     <None Remove="hangman\Hangman-4.png" />
     <None Remove="hangman\Hangman-5.png" />
     <None Remove="hangman\Hangman-6.png" />
+    <None Remove="Без названия.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="5753cd33c46861551f59925c.png" />
+    <Resource Include="Desert.jpg" />
     <Resource Include="hangman\Hangman-0.png" />
     <Resource Include="hangman\Hangman-1.png" />
     <Resource Include="hangman\Hangman-2.png" />
@@ -30,6 +35,7 @@
     <Resource Include="hangman\Hangman-4.png" />
     <Resource Include="hangman\Hangman-5.png" />
     <Resource Include="hangman\Hangman-6.png" />
+    <Resource Include="Без названия.jpg" />
   </ItemGroup>
 
   <ItemGroup>

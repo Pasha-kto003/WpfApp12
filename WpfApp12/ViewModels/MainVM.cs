@@ -14,7 +14,14 @@ namespace WpfApp12.ViewModels
         public IEnumerable<ViewChar> TryWord { get; set; }
         public MvvmCommand CommandTry { get; set; }
         public MvvmCommand CommandStart { get; set; }
-        public MvvmCommand Commandwin { get; set; }
+
+
+        public int CountLetter { get => game.CountLetter; set => game.CountLetter = value; }
+
+        public string Message
+        {
+            get => game.CurrentMessage;
+        }
 
         public MainVM()
         {
@@ -28,12 +35,19 @@ namespace WpfApp12.ViewModels
                 () => !game.Status);
             game.ImageChanged += Game_ImageChanged;
             game.WordStatusChanged += Game_WordStatusChanged;
+            game.CurrentMessageChanged += Game_CurrentMessageChanged;
+        }
+
+        private void Game_CurrentMessageChanged(object sender, EventArgs e)
+        {
+            NotifyPropertyChanged("Message");
         }
 
         private void Game_WordStatusChanged(object sender, Models.Char[] e)
         {
             TryWord = e.Select(s => new ViewChar(s));
             NotifyPropertyChanged("TryWord");
+
         }
 
         private void Game_ImageChanged(object sender, int e)

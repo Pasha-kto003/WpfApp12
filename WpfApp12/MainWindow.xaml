@@ -6,17 +6,23 @@
         xmlns:local="clr-namespace:WpfApp12"
         xmlns:vm="clr-namespace:WpfApp12.ViewModels"
         mc:Ignorable="d"
-        Title="Виселица" Height="400" Width="500">
+        Title="Виселица" Height="498" Width="638">
     <Window.Resources>
         <DataTemplate x:Key="characterBox" DataType="ListBoxItem">
             <TextBox Text="{Binding Character}" GotFocus="TextBoxGotFocus" IsEnabled="{Binding Unknown}" Padding="5" FontSize="16"/>
         </DataTemplate>
     </Window.Resources>
+    <Window.Background>
+        <ImageBrush/>
+    </Window.Background>
     <Window.DataContext>
         <vm:MainVM/>
     </Window.DataContext>
         
     <Grid Margin="10">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Без названия.jpg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
@@ -31,9 +37,28 @@
             </ListBox.ItemsPanel>
         </ListBox>
         <StackPanel Orientation="Horizontal" Grid.Row="2">
-            <Button Content="Начать игру"  HorizontalAlignment="Center"  Padding="5" Command="{Binding CommandStart}"/>
-            <Button Content="Угадай букву" Command="{Binding CommandTry}"/>
-            <TextBlock x:Name="win_lose" Text="{Binding CommandWin}"/>
+            <TextBox Padding="5" FontSize="15" HorizontalAlignment="Center" Text="{Binding CountLetter}" MaxLength="2"/>
+            <Button Content="Начать игру"  HorizontalAlignment="Center"  Padding="5" Command="{Binding CommandStart}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF3F3F3"/>
+                        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                        <GradientStop Color="#FF9318CD" Offset="0.209"/>
+                        <GradientStop Color="#FF9818D4" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Угадай букву" Command="{Binding CommandTry}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF3F3F3"/>
+                        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+                        <GradientStop Color="#FFB92323" Offset="0.386"/>
+                        <GradientStop Color="#FFA81313" Offset="0.671"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <TextBlock Text="{Binding Message, Mode=OneWay}" />
         </StackPanel>
     </Grid>
 </Window>
