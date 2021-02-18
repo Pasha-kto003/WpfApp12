@@ -14,6 +14,7 @@ namespace WpfApp12.Models
         public event EventHandler<Char[]> WordStatusChanged;
         string word;
         int errorCount = 0;
+        Char[] chars = new Char[0];
         Char[] chars= new Char [0];
         private string currentMessage;
         public string CurrentMessage

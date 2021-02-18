@@ -14,6 +14,7 @@ namespace WpfApp12.ViewModels
         public IEnumerable<ViewChar> TryWord { get; set; }
         public MvvmCommand CommandTry { get; set; }
         public MvvmCommand CommandStart { get; set; }
+        public MvvmCommand CommandResult { get; set; }
 
 
         public int CountLetter { get => game.CountLetter; set => game.CountLetter = value; }
